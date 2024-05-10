@@ -69,6 +69,9 @@ Vá conversando solicitando informações sobre produtos ao bot até finalizar o
 
 você refinar o prompt no aquivo gemini.py função novo_chat()
 
+#### Segue um print dele em ação
+![Alt text](img/print_chat.PNG?raw=true "Print do bot em ação")
+
 
 ## Contribuições
 Contribuições são bem-vindas! Se você tem melhorias ou correções, por favor, faça um fork do repositório, faça suas alterações, e envie um pull request.
