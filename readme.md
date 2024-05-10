@@ -10,6 +10,8 @@ O Objetivo dele é interagir com o cliente, passando informações sobre produto
 - Com esses dados, a IA monta a resposta em liguagem natual e devolve para o bot entre tags <msg>. 
 - Prontamente o bot extrai o texto e entrega pro cliente.
 
+![Arquitetura](img/diagrama.png?raw=true "Arquitetura")
+
 Porque um Bot entre o usuário e a IA?
 - A IA (nesse contexto) não possui acesso ao banco (e nem sei se deveria ter)
 - O Bot é um script python binário que não tem condições de montar SQL e mensagens amigáveis facilmente
