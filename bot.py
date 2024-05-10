@@ -5,8 +5,10 @@ from banco import Banco
 import logging
 from logging.handlers import RotatingFileHandler
 
+import re
+
 log = logging.getLogger()
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 handler = RotatingFileHandler(
@@ -16,15 +18,12 @@ handler = RotatingFileHandler(
     encoding='utf-8'
 )
 
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', 
-                              datefmt='%d/%m/%Y %I:%M:%S %p')
+formatter = logging.Formatter('%(message)s')
 handler.setFormatter(formatter)
 
 # Adiciona o handler ao logger
 log.addHandler(handler)
 
-
-import re
 
 class Bot():
 
@@ -37,22 +36,21 @@ class Bot():
         self.banco.close_connection()
 
     def send_to_ia(self, msg):
-        log.info(f"send_to_ia function calledmsg:\n {msg}")
+        log.info(f"Bot to IA:\n {msg}")
         response = gemini.process_input(msg=msg, chat = self.chat)
         self.process_ia_response(response)
 
     def send_to_user(self, msg):
-        log.info(f"send_to_user function called. msg:\n {msg}")
+        log.info(f"Bot to User:\n {msg}")
         print("Bot: "+Fore.CYAN + msg + Style.RESET_ALL)
 
 
     def process_ia_response(self, ia_response):
-        log.info("process_ia_response function called")
         msg = ""
         for chunk in ia_response:
             msg += chunk.text
 
-        log.info(f"msg from IA is \n{msg}")
+        log.info(f"IA to Bot: \n{msg}")
         if ("<sql>" in msg.lower()):
             json_data =  self.handle_database_query(msg)
             response = self.send_to_ia(str(json_data))
