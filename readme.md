@@ -50,19 +50,10 @@ Interaja com o chatbot através da linha de comando:
 
 Vá conversando solicitando informações sobre produtos ao bot até finalizar o pedido.
 
-você refinar o prompt no aquivo gemini.py função novo_chat()
-
-## Screenshots
-(Opcional) Inclua imagens da interface CLI mostrando diferentes interações com o chatbot.
-
-## Testes
-Os testes não foram implementados nesta versão do projeto.
+você pode refinar o prompt no aquivo gemini.py função novo_chat()
 
 ## Contribuições
 Contribuições são bem-vindas! Se você tem melhorias ou correções, por favor, faça um fork do repositório, faça suas alterações, e envie um pull request.
 
 ## Licença
-Este projeto é distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## Contato
-Para suporte ou outras questões, entre em contato através de [seu-email@example.com].
+Este projeto é distribuído sob a licença GNU.
