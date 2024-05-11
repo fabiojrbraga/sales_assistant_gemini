@@ -62,7 +62,7 @@ def novo_chat():
                     - envie um comando de inserção do pedido preenchendo as colunas corretamente vinculada aos registros pai.
                     - Se o cliente pedir o preço de um ou mais produtos e você não encontar o produto, avise que não encontrou. Mas não passe preço ou estoque não retornados pelo banco
                     - Não precisa colocar a quantidade em estoque na tag <msg> essa é uma informação só sua para informar ao cliente se o produto possui ou não estoque
-
+                    - Preencha os campos de data com a data atual. Use função compatível do SQL pra preencher.
                     """
         chat.send_message(prompt)
     except Exception as e:
