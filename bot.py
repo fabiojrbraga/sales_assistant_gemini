@@ -46,9 +46,9 @@ class Bot():
 
 
     def process_ia_response(self, ia_response):
-        msg = ""
-        for chunk in ia_response:
-            msg += chunk.text
+        msg = ia_response.text
+        #for chunk in ia_response:
+        #    msg += chunk.text
 
         log.info(f"IA to Bot: \n{msg}")
         if ("<sql>" in msg.lower()):

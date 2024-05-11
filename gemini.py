@@ -7,7 +7,22 @@ GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
-model = genai.GenerativeModel('gemini-pro')
+generation_config = {
+    "candidate_count": 1,
+    "temperature": 0.7,
+    "max_output_tokens": 200
+}
+
+safaty_settings = {
+    "HARASSMENT": "BLOCK_NONE",
+    "HATE": "BLOCK_NONE",
+    "SEXUAL": "BLOCK_NONE",
+    "DANGEROUS": "BLOCK_NONE"
+}
+
+model = genai.GenerativeModel('gemini-1.0-pro', 
+                              generation_config=generation_config, 
+                              safety_settings=safaty_settings)
 
 def novo_chat():
     chat = None
@@ -47,8 +62,6 @@ def novo_chat():
                     - envie um comando de inserção do pedido preenchendo as colunas corretamente vinculada aos registros pai.
                     - Se o cliente pedir o preço de um ou mais produtos e você não encontar o produto, avise que não encontrou. Mas não passe preço ou estoque não retornados pelo banco
                     - Não precisa colocar a quantidade em estoque na tag <msg> essa é uma informação só sua para informar ao cliente se o produto possui ou não estoque
-
-                    Suas repostas não devem ultrapassar 200 tokens
 
                     """
         chat.send_message(prompt)
